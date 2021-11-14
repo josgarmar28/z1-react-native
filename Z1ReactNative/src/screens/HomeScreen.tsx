@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { FlatList, StyleSheet, Text, View, } from 'react-native'
 
 import { CategoryCard } from '../components/categoryCard';
@@ -13,6 +13,14 @@ export const HomeScreen = () => {
      const { categoryList } = useCategory();
      const [filtro, setFiltro] = useState<string>('All');
 
+     const filteredList = useMemo(
+        () => {
+          if (filtro === 'All' ) return lessonList
+          return lessonList.filter(lesson => filtro === lesson.category.title)
+        },
+        [filtro, lessonList]
+      )
+
      return (
             <View
                 style={{ alignItems: 'center'}}
@@ -26,10 +34,10 @@ export const HomeScreen = () => {
                 />
                 
                 <FlatList 
-                    data={ lessonList }
+                    data={ filteredList }
                     showsVerticalScrollIndicator={ false }
                     numColumns={ 2 }
-                    renderItem={ ({ item }) => ( <LessonCard lesson={ item } filtro={filtro} /> )}
+                    renderItem={ ({ item }) => ( <LessonCard lesson={ item } /> )}
 
                 />
             </View>

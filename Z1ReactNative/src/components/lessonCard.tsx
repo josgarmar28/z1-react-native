@@ -9,16 +9,15 @@ const windowWidth = Dimensions.get('window').width
 
 interface Props {
     lesson: Lesson;
-    filtro: string;
 }
 
-export const LessonCard = ({ lesson, filtro }: Props ) => {
+export const LessonCard = ({ lesson }: Props ) => {
 
     const urlImagen = lesson.image; 
     const isMounted = useRef(true);
     const navigation = useNavigation();
       
-    {if (lesson.category.title.match(filtro) || filtro.match('All')) {
+
         return (
             <TouchableOpacity
             activeOpacity={ 0.9 }
@@ -47,12 +46,6 @@ export const LessonCard = ({ lesson, filtro }: Props ) => {
             </View>
             </TouchableOpacity>
     )
-    } else{
-        return (
-            <>
-            </>
-        )
-    } }
     
 }
 
