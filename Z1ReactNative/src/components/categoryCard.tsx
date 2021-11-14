@@ -1,17 +1,22 @@
 import React from 'react'
 import { Text, View, TouchableOpacity, StyleSheet, Dimensions, Image } from 'react-native';
 
-import { Lesson } from '../interfaces/lessonInterfaces';
+import { Lesson, Title } from '../interfaces/lessonInterfaces';
+import { useState } from 'react';
 
 interface Props {
     lesson: Lesson;
+    filtro: string;
+    setFiltro: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const CategoryCard = ({ lesson}: Props ) => {
+
+export const CategoryCard = ({ lesson, setFiltro}: Props ) => {    
 
     return (
         <TouchableOpacity
             activeOpacity={ 0.9 } 
+            onPress={() => setFiltro(lesson.category.title)}
         >
             <View style={
                 styles.cardContainer

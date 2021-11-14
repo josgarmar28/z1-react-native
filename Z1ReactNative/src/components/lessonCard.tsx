@@ -1,19 +1,22 @@
 import React from 'react'
 import { Text, View, StyleSheet, Dimensions, Image} from 'react-native';
 
-import { Lesson } from '../interfaces/lessonInterfaces';
+import { Lesson, Category, Title } from '../interfaces/lessonInterfaces';
 
 const windowWidth = Dimensions.get('window').width
 
 interface Props {
     lesson: Lesson;
+    filtro: string;
+    setFiltro: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const LessonCard = ({ lesson }: Props ) => {
+export const LessonCard = ({ lesson, filtro }: Props ) => {
 
     const urlImagen = lesson.image; 
-    
-    return (
+      
+    {if (lesson.category.title.match(filtro) || filtro.match('Any')) {
+        return (
             <View style={styles.cardContainer}>
                 <Image
                     style={styles.image}
@@ -34,6 +37,13 @@ export const LessonCard = ({ lesson }: Props ) => {
                 
             </View>
     )
+    } else{
+        return (
+            <>
+            </>
+        )
+    } }
+    
 }
 
 
