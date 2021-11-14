@@ -1,28 +1,27 @@
 import React from 'react'
 import { Text, View, TouchableOpacity, StyleSheet, Dimensions, Image } from 'react-native';
 
-import { Lesson, Title } from '../interfaces/lessonInterfaces';
+import { Lesson, Title, Category } from '../interfaces/lessonInterfaces';
 import { useState } from 'react';
 
 interface Props {
-    lesson: Lesson;
-    filtro: string;
+    category: string;
     setFiltro: React.Dispatch<React.SetStateAction<string>>;
 }
 
 
-export const CategoryCard = ({ lesson, setFiltro}: Props ) => {    
+export const CategoryCard = ({ category, setFiltro}: Props ) => {    
 
     return (
         <TouchableOpacity
             activeOpacity={ 0.9 } 
-            onPress={() => setFiltro(lesson.category.title)}
+            onPress={() => setFiltro(category)}
         >
             <View style={
                 styles.cardContainer
             }>
                 <Text style={ styles.name }>
-                    { lesson.category.title }
+                    { category }
                 </Text>
             </View>
         </TouchableOpacity>

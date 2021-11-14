@@ -1,22 +1,31 @@
 import React from 'react'
-import { Text, View, StyleSheet, Dimensions, Image} from 'react-native';
+import { Text, View, StyleSheet, Dimensions, Image, TouchableOpacity } from 'react-native';
 
-import { Lesson, Category, Title } from '../interfaces/lessonInterfaces';
+import { Lesson } from '../interfaces/lessonInterfaces';
+import { useNavigation } from '@react-navigation/core';
+import {useRef} from 'react';
 
 const windowWidth = Dimensions.get('window').width
 
 interface Props {
     lesson: Lesson;
     filtro: string;
-    setFiltro: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const LessonCard = ({ lesson, filtro }: Props ) => {
 
     const urlImagen = lesson.image; 
+    const isMounted = useRef(true);
+    const navigation = useNavigation();
       
-    {if (lesson.category.title.match(filtro) || filtro.match('Any')) {
+    {if (lesson.category.title.match(filtro) || filtro.match('All')) {
         return (
+            <TouchableOpacity
+            activeOpacity={ 0.9 }
+            // onPress={ 
+            //     () => navigation.navigate('DetailScreen') 
+            // } 
+        >
             <View style={styles.cardContainer}>
                 <Image
                     style={styles.image}
@@ -36,6 +45,7 @@ export const LessonCard = ({ lesson, filtro }: Props ) => {
                 </Text>
                 
             </View>
+            </TouchableOpacity>
     )
     } else{
         return (

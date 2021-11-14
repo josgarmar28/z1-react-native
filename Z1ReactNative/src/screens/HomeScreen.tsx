@@ -5,11 +5,13 @@ import { CategoryCard } from '../components/categoryCard';
 import { LessonCard } from '../components/lessonCard';
 import { useLesson } from '../hooks/useLesson';
 import { Title } from '../interfaces/lessonInterfaces';
+import { useCategory } from '../hooks/useCategory';
 
 export const HomeScreen = () => {
 
      const { lessonList } = useLesson();
-     const [filtro, setFiltro] = useState<string>('Any');
+     const { categoryList } = useCategory();
+     const [filtro, setFiltro] = useState<string>('All');
 
      return (
             <View
@@ -18,8 +20,8 @@ export const HomeScreen = () => {
                 <Text style={styles.header}>Learn</Text>
                 <FlatList
                     style={styles.listaHorizontal} 
-                    data={lessonList}
-                    renderItem={ ({ item }) => ( <CategoryCard lesson={ item } filtro={filtro} setFiltro={setFiltro} /> )}
+                    data={categoryList}
+                    renderItem={ ({ item }) => ( <CategoryCard category={ item } setFiltro={setFiltro} /> )}
                     horizontal= {true}
                 />
                 
@@ -27,7 +29,7 @@ export const HomeScreen = () => {
                     data={ lessonList }
                     showsVerticalScrollIndicator={ false }
                     numColumns={ 2 }
-                    renderItem={ ({ item }) => ( <LessonCard lesson={ item } filtro={filtro} setFiltro={setFiltro} /> )}
+                    renderItem={ ({ item }) => ( <LessonCard lesson={ item } filtro={filtro} /> )}
 
                 />
             </View>
