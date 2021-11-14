@@ -1,23 +1,22 @@
 import React from 'react'
-import { FlatList, Text, View, } from 'react-native'
+import { FlatList, StyleSheet, Text, View, } from 'react-native'
 
-
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { CategoryCard } from '../components/categoryCard';
-import { LessonCard } from '../components/lessonCard';
-import { useLesson } from '../hooks/useLesson';
+import { CategoryCard } from '../components/CategoryCard';
+import { LessonCard } from '../components/LessonCard';
+import { useLesson } from '../hooks/UseLesson';
 
 export const HomeScreen = () => {
 
-//     // const { top } = useSafeAreaInsets();
      const { lessonList } = useLesson();
+
      return (
-         
             <View
                 style={{ alignItems: 'center' }}
             >
-                <Text>Learn</Text>
-                <FlatList 
+                <Text style={styles.header}>Learn</Text>
+
+                <FlatList
+                    style={styles.listaHorizontal} 
                     data={lessonList}
                     renderItem={ ({ item }) => ( <CategoryCard lesson={ item } /> )}
                     horizontal= {true}
@@ -34,4 +33,19 @@ export const HomeScreen = () => {
             </View>
     )
 }
+
+const styles = StyleSheet.create({
+    header: {
+        fontSize: 30,
+        marginTop: 25,
+        fontWeight: 'bold',
+    },
+    listaHorizontal: {
+        marginTop: 12,
+        marginBottom: 22,
+        marginLeft: 10,
+        height: 50, 
+    }
+});
+
 

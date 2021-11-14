@@ -6,7 +6,7 @@ import {
     gql
 } from "@apollo/client";
 
-import { Data, ReqResListado } from '../interfaces/lessonInterfaces';
+import { Data} from '../interfaces/LessonInterfaces';
 
 const client = new ApolloClient({
     uri: 'https://tech.z1.digital/graphql',

@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
-import { query } from '../api/lessonApi';
-import { Lesson } from '../interfaces/lessonInterfaces';
+import { query } from '../api/LessonApi';
+import { Lesson } from '../interfaces/LessonInterfaces';
 
 export const useLesson = ( ) => {
 
-    const [ isLoading, setIsLoading ] = useState(true)
+    // const [ isLoading, setIsLoading ] = useState(true)
     const [ lessonList, setLessonList ] = useState<Lesson[]>({} as Lesson[])
 
     const loadAudio = async() => {
         const result = await query;
         setLessonList(result.data.items);
-        setIsLoading(false);
+        // setIsLoading(false);
     }
 
     useEffect(() => {
@@ -18,7 +18,7 @@ export const useLesson = ( ) => {
     }, [])
 
     return {
-        isLoading,
+        // isLoading,
         lessonList
     }
 }

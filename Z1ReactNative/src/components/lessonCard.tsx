@@ -1,8 +1,7 @@
-import { useNavigation } from '@react-navigation/core';
-import React, { useEffect, useRef, useState } from 'react'
-import { Text, View, TouchableOpacity, StyleSheet, Dimensions, Image } from 'react-native';
+import React from 'react'
+import { Text, View, StyleSheet, Dimensions, Image} from 'react-native';
 
-import { Lesson } from '../interfaces/lessonInterfaces';
+import { Lesson } from '../interfaces/LessonInterfaces';
 
 const windowWidth = Dimensions.get('window').width
 
@@ -12,66 +11,67 @@ interface Props {
 
 export const LessonCard = ({ lesson }: Props ) => {
 
-    const [bgColor, setBgColor] = useState('grey');
-    const isMounted = useRef(true);
-    const navigation = useNavigation();
     const urlImagen = lesson.image; 
-
+    
     return (
-        <TouchableOpacity
-            activeOpacity={ 0.9 } 
-        >
-            <View style={{
-                ...styles.cardContainer,
-                width: windowWidth * 0.4,
-                backgroundColor: bgColor
-            }}>
-                <View>
+            <View style={styles.cardContainer}>
                 <Image
-                    style={{
-                        width: 100,
-                        height: 100
-                    }}
+                    style={styles.image}
                     source={{
                     uri: urlImagen,
                     }}
                 />
 
-                    <Text style={ styles.name }>
-                        { '\n' + lesson.category.title }
-                        { '\n' + lesson.title }
-                        { '\n' + lesson.author }
-                    </Text>
-                </View>
-
+                <Text style={ styles.category }>
+                    {lesson.category.title }
+                </Text>
+                <Text style={ styles.title }>
+                    {lesson.title }
+                </Text>
+                <Text style={ styles.author }>
+                    {lesson.author }
+                </Text>
+                
             </View>
-        </TouchableOpacity>
     )
 }
 
 
 const styles = StyleSheet.create({
     cardContainer: {
-        marginHorizontal: 10,
-        // backgroundColor: 'grey',
-        marginBottom: 25,
+        marginHorizontal: 5,
+        backgroundColor: 'grey',
+        width: windowWidth * 0.45,
+        marginBottom: 10,
         borderRadius: 10,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-
-        elevation: 5,
-
+        height:300,
     },
-    name: {
-        color: 'white',
-        fontSize: 20,
+    image: {
+        width:'100%',
+        height: '38%',
+        borderTopLeftRadius: 10,
+        borderTopRightRadius:10,
+    },
+    category: {
+        color: 'yellow',
+        fontSize: 15,
+        marginHorizontal:10,
+        textTransform: 'uppercase',
         fontWeight: 'bold',
-        top: 20,
-        left: 10
+        marginTop: 10,
+        marginBottom: 5,
     },
+    title:{
+        color: 'white',
+        fontSize: 18,
+        marginHorizontal: 10,
+        fontWeight: 'bold',
+        marginBottom: 5,
+    },
+    author:{
+        color: 'white',
+        fontSize: 13,
+        marginHorizontal: 10,
+        marginBottom: 5,
+    }
 });
