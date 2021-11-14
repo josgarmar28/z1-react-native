@@ -1,9 +1,9 @@
 import React from 'react'
 import { FlatList, StyleSheet, Text, View, } from 'react-native'
 
-import { CategoryCard } from '../components/CategoryCard';
-import { LessonCard } from '../components/LessonCard';
-import { useLesson } from '../hooks/UseLesson';
+import { CategoryCard } from '../components/categoryCard';
+import { LessonCard } from '../components/lessonCard';
+import { useLesson } from '../hooks/useLesson';
 
 export const HomeScreen = () => {
 

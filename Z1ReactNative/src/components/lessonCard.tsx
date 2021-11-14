@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, View, StyleSheet, Dimensions, Image} from 'react-native';
 
-import { Lesson } from '../interfaces/LessonInterfaces';
+import { Lesson } from '../interfaces/lessonInterfaces';
 
 const windowWidth = Dimensions.get('window').width
 

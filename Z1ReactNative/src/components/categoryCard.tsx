@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, View, TouchableOpacity, StyleSheet, Dimensions, Image } from 'react-native';
 
-import { Lesson } from '../interfaces/LessonInterfaces';
+import { Lesson } from '../interfaces/lessonInterfaces';
 
 interface Props {
     lesson: Lesson;

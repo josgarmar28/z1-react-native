@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { query } from '../api/LessonApi';
-import { Lesson } from '../interfaces/LessonInterfaces';
+import { query } from '../api/lessonApi';
+import { Lesson } from '../interfaces/lessonInterfaces';
 
 export const useLesson = ( ) => {
 
