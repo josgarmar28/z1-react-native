@@ -23,6 +23,7 @@ export const useCategory = () => {
         });
         let filteredCategory = Array.from(new Set(newCategoryTitle));
         filteredCategory.push('All');
+        filteredCategory.push('Favorites');
         filteredCategory.sort();
        setCategoryList(filteredCategory);
     }

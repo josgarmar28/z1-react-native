@@ -21,10 +21,12 @@ export const LessonCard = ({ lesson }: Props ) => {
         return (
             <TouchableOpacity
             activeOpacity={ 0.9 }
-            // onPress={ 
-            //     () => navigation.navigate('DetailScreen') 
-            // } 
-        >
+            onPress={ 
+                () => navigation.navigate('DetailScreen', { 
+                    lesson: lesson
+                }) 
+            } 
+            >
             <View style={styles.cardContainer}>
                 <Image
                     style={styles.image}

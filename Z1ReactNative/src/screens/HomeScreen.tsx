@@ -4,7 +4,7 @@ import { FlatList, StyleSheet, Text, View, } from 'react-native'
 import { CategoryCard } from '../components/categoryCard';
 import { LessonCard } from '../components/lessonCard';
 import { useLesson } from '../hooks/useLesson';
-import { Title } from '../interfaces/lessonInterfaces';
+import { Lesson, Title } from '../interfaces/lessonInterfaces';
 import { useCategory } from '../hooks/useCategory';
 
 export const HomeScreen = () => {
@@ -13,7 +13,9 @@ export const HomeScreen = () => {
      const { categoryList } = useCategory();
      const [filtro, setFiltro] = useState<string>('All');
 
-     const filteredList = useMemo(
+     const [favoriteList, setFavoiteList] = useState<Lesson[]>();
+
+     var filteredList = useMemo(
         () => {
           if (filtro === 'All' ) return lessonList
           return lessonList.filter(lesson => filtro === lesson.category.title)
@@ -37,8 +39,7 @@ export const HomeScreen = () => {
                     data={ filteredList }
                     showsVerticalScrollIndicator={ false }
                     numColumns={ 2 }
-                    renderItem={ ({ item }) => ( <LessonCard lesson={ item } /> )}
-
+                    renderItem={ ({ item }) => ( <LessonCard lesson={ item }/> )}
                 />
             </View>
     )
