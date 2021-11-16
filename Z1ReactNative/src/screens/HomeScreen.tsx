@@ -9,40 +9,60 @@ import { HomeScreenCategoryBar, HomeScreenTitle } from '../themes/AppThemes';
 
 export const HomeScreen = () => {
 
-     const { lessonList } = useLesson();
-     const { categoryList } = useCategory();
-     const [filtro, setFiltro] = useState<string>('All');
+    const { lessonList } = useLesson();
+    const { categoryList } = useCategory();
+    const [filtro, setFiltro] = useState<string>('All');
 
-     var filteredList = useMemo(
-        () => {
-          if (filtro === 'All' ) return lessonList
-          return lessonList.filter(lesson => filtro === lesson.category.title)
-        },
-        [filtro, lessonList]
-      )
+    const selector = filtro === 'All';
 
-     return (
-            <View style={{ alignItems: 'center'}}>
+    var filteredList = useMemo(
+    () => {
+        if ( selector ) return lessonList
+        return lessonList.filter(lesson => filtro === lesson.category.title)
+    },
+    [filtro, lessonList]
+    )
 
-                <HomeScreenTitle>Learn</HomeScreenTitle>
-                
-                <HomeScreenCategoryBar
-                    data={categoryList}
-                    renderItem={
-                         ({ item }) => 
-                         ( <CategoryCard category={ item } setFiltro={setFiltro} /> )}
-                    horizontal= {true}
-                />
-                
-                <FlatList 
-                    data={ filteredList }
-                    showsVerticalScrollIndicator={ false }
-                    numColumns={ 2 }
-                    renderItem={ 
-                        ({ item }) =>
-                        ( <LessonCard lesson={ item }/> )}
-                />
+    
 
-            </View>
+    return (
+        <View style={{ alignItems: 'center'}}>
+
+            <HomeScreenTitle>Learn</HomeScreenTitle>
+            
+            <HomeScreenCategoryBar
+                data={ categoryList }
+                showsHorizontalScrollIndicator={ false }
+                renderItem={
+                        ({ item }) => 
+                        ( <CategoryCard category={ item } filtro={ filtro } setFiltro={ setFiltro } /> )}
+                horizontal= {true}
+            />
+
+            {selector ?
+
+            <FlatList 
+                key={ '2' }
+                data={ filteredList }
+                showsVerticalScrollIndicator={ false }
+                numColumns= { 2 }
+                renderItem={ 
+                    ({ item }) => ( <LessonCard lesson={ item } selector={ selector }/> )
+                }
+            />
+            :
+            <FlatList 
+                key={ '1' }
+                data={ filteredList }
+                showsVerticalScrollIndicator={ false }
+                numColumns= { 1 }
+                renderItem={ 
+                    ({ item }) => ( <LessonCard lesson={ item } selector={ selector }/> )
+                }
+            />
+
+            }
+
+        </View>
     )
 }

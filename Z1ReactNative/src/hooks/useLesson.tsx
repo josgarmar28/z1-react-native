@@ -9,7 +9,7 @@ export const useLesson = ( ) => {
 
     const loadAudio = async() => {
         const result = await query;
-        setLessonList(result.data.items);
+        setLessonList( result.data.items );
         // setIsLoading(false);
     }
 

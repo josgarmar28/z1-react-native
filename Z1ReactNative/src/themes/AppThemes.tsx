@@ -60,12 +60,73 @@ export const LessonCardAuthor = styled.Text`
     font-size: 13px;
 `;
 
+
+//LessonCard - Horizontal
+export const HLessonCardContainer = styled.View`
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: #60306f;
+    shadow-color: #000;
+    height:125px;
+`;
+
+export const HLessonCardImage = styled.Image`
+    width: 30%;
+    height: 107px;
+    margin-vertical: 8px;
+    margin-horizontal: 8px;
+    border-radius: 10px;
+`;
+
+export const HLessonCardArticle = styled.Text` 
+    position: absolute;
+    left: 115px;
+    margin-horizontal: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #fddb6f;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+`;
+
+export const HLessonCardTitle = styled.Text` 
+    position: absolute;
+    top: 35px;
+    left: 115px;
+    width: 220px;
+    margin-horizontal: 10px;
+    margin-bottom: 5px;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+`;
+
+export const HLessonCardAuthor = styled.Text` 
+    position: absolute;
+    bottom: 5px;
+    left: 115px;
+    margin-horizontal: 10px;
+    margin-bottom: 5px;
+    color: #FFFFFF;
+    font-size: 13px;
+`;
+
 //Categories
 export const CategoryCardContainer = styled.View`
     margin-horizontal: 7px;
     margin-bottom: 7px;
     border-radius: 10px;
     background-color: #593c71;
+    shadow-color: #000;
+    height: 37px;
+`;
+
+export const SelectedContainer = styled.View`
+    margin-horizontal: 7px;
+    margin-bottom: 7px;
+    border-radius: 10px;
+    background-color: #b77ac4;
     shadow-color: #000;
     height: 37px;
 `;

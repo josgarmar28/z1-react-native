@@ -41,21 +41,19 @@ export const DetailScreen = ({ navigation, route }: Props) => {
                 </DetailScreenArticle>
 
                 <DetailScreenTitle>
-                    {lesson.title }
+                    { lesson.title }
                 </DetailScreenTitle>
 
                 <DetailScreenText>
-                    {lesson.author }
+                    { lesson.author }
                 </DetailScreenText>
 
                 <DetailScreenImage
-                    source={{
-                    uri: urlImagen,
-                    }}
+                    source={{ uri: urlImagen }}
                 />
 
                 <DetailScreenText>
-                    {lesson.content }
+                    { lesson.content }
                 </DetailScreenText>
 
             </DetailScreenContainer>

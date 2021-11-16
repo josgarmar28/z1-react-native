@@ -3,16 +3,17 @@ import { Dimensions, TouchableOpacity } from 'react-native';
 
 import { Lesson } from '../interfaces/lessonInterfaces';
 import { useNavigation } from '@react-navigation/core';
-import {useRef} from 'react';
-import { LessonCardContainer, LessonCardImage, LessonCardCategory, LessonCardTitle, LessonCardAuthor } from '../themes/AppThemes';
+import { useRef } from 'react';
+import { LessonCardContainer, LessonCardImage, LessonCardCategory, LessonCardTitle, LessonCardAuthor, HLessonCardContainer, HLessonCardImage, HLessonCardTitle, HLessonCardAuthor, HLessonCardArticle } from '../themes/AppThemes';
 
 const windowWidth = Dimensions.get('window').width
 
 interface Props {
     lesson: Lesson;
+    selector: boolean;
 }
 
-export const LessonCard = ({ lesson }: Props ) => {
+export const LessonCard = ({ lesson, selector }: Props ) => {
 
     const urlImagen = lesson.image; 
     const isMounted = useRef(true);
@@ -28,6 +29,8 @@ export const LessonCard = ({ lesson }: Props ) => {
                 }) 
             } 
             >
+            
+            { selector ?
 
                 <LessonCardContainer style={{width: windowWidth * 0.45}}>
                     <LessonCardImage
@@ -47,6 +50,27 @@ export const LessonCard = ({ lesson }: Props ) => {
                     </LessonCardAuthor>
                     
                 </LessonCardContainer>
+            :
+                <HLessonCardContainer style={{width: windowWidth * 0.9}}>
+                    <HLessonCardImage
+                        source={{uri: urlImagen}}
+                    />
+
+                    <HLessonCardArticle>
+                        Article
+                    </HLessonCardArticle>
+
+                    <HLessonCardTitle>
+                        {lesson.title }
+                    </HLessonCardTitle>
+
+                    <HLessonCardAuthor>
+                        {lesson.author }
+                    </HLessonCardAuthor>
+                    
+                </HLessonCardContainer>
+
+            }
 
             </TouchableOpacity>
     )

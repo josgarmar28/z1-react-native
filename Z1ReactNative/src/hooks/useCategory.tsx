@@ -17,18 +17,18 @@ export const useCategory = () => {
 
     const crearLista = (lessons : Lesson[]) => {
 
-        const newCategoryTitle: string[]= lessons.map(({category}) => {
+        const newCategoryTitle: string[]= lessons.map(({ category }) => {
             const categoryTitle = category.title;
             return categoryTitle;  
         });
 
-        let filteredCategory = Array.from(new Set(newCategoryTitle));
+        let filteredCategory = Array.from( new Set( newCategoryTitle ) );
 
-        filteredCategory.push('All');
+        filteredCategory.push( 'All' );
         //filteredCategory.push('Favorites');
         filteredCategory.sort();
 
-       setCategoryList(filteredCategory);
+       setCategoryList( filteredCategory );
     }
 
     
