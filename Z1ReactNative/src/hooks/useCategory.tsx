@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { query } from '../api/lessonApi';
-import { Data, Category, Lesson } from '../interfaces/lessonInterfaces';
+import { Lesson } from '../interfaces/lessonInterfaces';
 
 
 export const useCategory = () => {
@@ -21,10 +21,13 @@ export const useCategory = () => {
             const categoryTitle = category.title;
             return categoryTitle;  
         });
+
         let filteredCategory = Array.from(new Set(newCategoryTitle));
+
         filteredCategory.push('All');
-        filteredCategory.push('Favorites');
+        //filteredCategory.push('Favorites');
         filteredCategory.sort();
+
        setCategoryList(filteredCategory);
     }
 
@@ -37,5 +40,4 @@ export const useCategory = () => {
     return {
         categoryList
     }
-
 }

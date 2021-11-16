@@ -18,12 +18,12 @@ export interface Lesson {
 
 export interface Category {
     id:    string;
-    title: Title;
+    title: string//Title;
 }
 
-export enum Title {
-    HarmReduction = "Harm Reduction",
-    Integration = "Integration",
-    Mindfulness = "Mindfulness",
-    Tripping = "Tripping",
-}
+// export enum Title {
+//     HarmReduction = "Harm Reduction",
+//     Integration = "Integration",
+//     Mindfulness = "Mindfulness",
+//     Tripping = "Tripping",
+// }

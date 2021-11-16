@@ -1,19 +1,17 @@
 import React, { useMemo, useState } from 'react'
-import { FlatList, StyleSheet, Text, View, } from 'react-native'
+import { View, FlatList } from 'react-native';
 
 import { CategoryCard } from '../components/categoryCard';
 import { LessonCard } from '../components/lessonCard';
 import { useLesson } from '../hooks/useLesson';
-import { Lesson, Title } from '../interfaces/lessonInterfaces';
 import { useCategory } from '../hooks/useCategory';
+import { HomeScreenCategoryBar, HomeScreenTitle } from '../themes/AppThemes';
 
 export const HomeScreen = () => {
 
      const { lessonList } = useLesson();
      const { categoryList } = useCategory();
      const [filtro, setFiltro] = useState<string>('All');
-
-     const [favoriteList, setFavoiteList] = useState<Lesson[]>();
 
      var filteredList = useMemo(
         () => {
@@ -24,14 +22,15 @@ export const HomeScreen = () => {
       )
 
      return (
-            <View
-                style={{ alignItems: 'center'}}
-            >
-                <Text style={styles.header}>Learn</Text>
-                <FlatList
-                    style={styles.listaHorizontal} 
+            <View style={{ alignItems: 'center'}}>
+
+                <HomeScreenTitle>Learn</HomeScreenTitle>
+                
+                <HomeScreenCategoryBar
                     data={categoryList}
-                    renderItem={ ({ item }) => ( <CategoryCard category={ item } setFiltro={setFiltro} /> )}
+                    renderItem={
+                         ({ item }) => 
+                         ( <CategoryCard category={ item } setFiltro={setFiltro} /> )}
                     horizontal= {true}
                 />
                 
@@ -39,24 +38,11 @@ export const HomeScreen = () => {
                     data={ filteredList }
                     showsVerticalScrollIndicator={ false }
                     numColumns={ 2 }
-                    renderItem={ ({ item }) => ( <LessonCard lesson={ item }/> )}
+                    renderItem={ 
+                        ({ item }) =>
+                        ( <LessonCard lesson={ item }/> )}
                 />
+
             </View>
     )
 }
-
-const styles = StyleSheet.create({
-    header: {
-        fontSize: 30,
-        marginTop: 25,
-        fontWeight: 'bold',
-    },
-    listaHorizontal: {
-        marginTop: 12,
-        marginBottom: 22,
-        marginLeft: 10,
-        height: 50, 
-    },
-});
-
-

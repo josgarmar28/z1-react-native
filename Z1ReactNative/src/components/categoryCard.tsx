@@ -1,8 +1,7 @@
 import React from 'react'
-import { Text, View, TouchableOpacity, StyleSheet, Dimensions, Image } from 'react-native';
+import { TouchableOpacity} from 'react-native';
 
-import { Lesson, Title, Category } from '../interfaces/lessonInterfaces';
-import { useState } from 'react';
+import { CategoryCardContainer, CategoryCardName } from '../themes/AppThemes';
 
 interface Props {
     category: string;
@@ -17,30 +16,14 @@ export const CategoryCard = ({ category, setFiltro}: Props ) => {
             activeOpacity={ 0.9 } 
             onPress={() => setFiltro(category)}
         >
-            <View style={
-                styles.cardContainer
-            }>
-                <Text style={ styles.name }>
+            <CategoryCardContainer>
+
+                <CategoryCardName>
                     { category }
-                </Text>
-            </View>
+                </CategoryCardName>
+
+            </CategoryCardContainer>
+
         </TouchableOpacity>
     )
 }
-
-
-const styles = StyleSheet.create({
-    cardContainer: {
-        marginHorizontal: 7,
-        backgroundColor: 'grey',
-        borderRadius: 10,
-    },
-    name: {
-        color: 'white',
-        fontSize: 18,
-        fontWeight: 'bold',
-        marginHorizontal: 10,
-        marginVertical: 5,
-        top: -2,
-    },
-});

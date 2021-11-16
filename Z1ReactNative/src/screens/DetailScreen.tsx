@@ -1,9 +1,9 @@
 import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react'
-import { Image, StyleSheet, Text, View, FlatList, Button } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { RootStackParams } from '../navigator/Navigator';
-import { Lesson } from '../interfaces/lessonInterfaces';
+import { DetailScreenContainer, DetailScreenArticle, DetailScreenTitle, DetailScreenText, DetailScreenImage, DetailScreenBackButton } from '../themes/AppThemes';
 
 interface Props extends StackScreenProps<RootStackParams, 'DetailScreen'> {};
 
@@ -21,85 +21,45 @@ export const DetailScreen = ({ navigation, route }: Props) => {
                 }}
         >
             
-            <View style={styles.container}>
-                <View style={styles.backButton}>
+            <DetailScreenContainer>
+
+                <DetailScreenBackButton>
+
                     <TouchableOpacity 
                         activeOpacity={ 0.75 }
-                        style={[
-                            styles.backButton,
-                        ]}
                         onPress={ () => navigation.pop() }
                     >
+
                         <Text>X</Text>
+
                     </TouchableOpacity>
-                </View>
 
-                <Text style={styles.article}>
+                </DetailScreenBackButton> 
+
+                <DetailScreenArticle>
                     Article
-                </Text>
+                </DetailScreenArticle>
 
-                <Text style={ styles.title }>
+                <DetailScreenTitle>
                     {lesson.title }
-                </Text>
+                </DetailScreenTitle>
 
-                <Text style={ styles.author }>
+                <DetailScreenText>
                     {lesson.author }
-                </Text>
+                </DetailScreenText>
 
-                <Image
-                    style={styles.image}
+                <DetailScreenImage
                     source={{
                     uri: urlImagen,
                     }}
                 />
 
-                <Text style={ styles.author }>
+                <DetailScreenText>
                     {lesson.content }
-                </Text>
+                </DetailScreenText>
 
-            </View>
+            </DetailScreenContainer>
+
         </ScrollView>
     )
 }
-
-const styles = StyleSheet.create({
-    backButton: {
-        width:20,
-        height: 20,
-    },
-    container: {
-        flex:1,
-        alignContent: 'center',
-        marginHorizontal:20,
-        marginTop: 20,
-    },
-    article: {
-        color: 'yellow',
-        fontSize: 13,
-        marginHorizontal:10,
-        textTransform: 'uppercase',
-        marginTop: 10,
-        marginBottom: 5,
-
-    },
-    image: {
-        width:'100%',
-        height: 300,
-        borderRadius: 10,
-        marginVertical: 7,
-
-    },
-    title:{
-        color: 'white',
-        fontSize: 30,
-        marginHorizontal: 10,
-        fontWeight: 'bold',
-        marginVertical: 7,
-    },
-    author:{
-        color: 'white',
-        fontSize: 13,
-        marginHorizontal: 10,
-        marginVertical: 7,
-    }
-});
