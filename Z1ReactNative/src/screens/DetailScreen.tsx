@@ -2,6 +2,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react'
 import { StyleSheet, Text } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import Icon from 'react-native-vector-icons/Entypo';
 import { RootStackParams } from '../navigator/Navigator';
 import { DetailScreenContainer, DetailScreenArticle, DetailScreenTitle, DetailScreenText, DetailScreenImage, DetailScreenBackButton } from '../themes/AppThemes';
 
@@ -30,7 +31,7 @@ export const DetailScreen = ({ navigation, route }: Props) => {
                         onPress={ () => navigation.pop() }
                     >
 
-                        <Text>X</Text>
+                        <Icon name="cross" size={20} color="#FFFFFF"/>
 
                     </TouchableOpacity>
 
