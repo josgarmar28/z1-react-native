@@ -13,9 +13,8 @@ export const useCategory = () => {
     }
 
     const crearLista = (lessons : Lesson[]) => {
-
-        const newCategoryTitle: string[]= lessons.map(({ category }) => {
-            const categoryTitle = category.title;
+        const newCategoryTitle: string[] = lessons.map(({ category }) => {
+            const categoryTitle: string = category.title;
             return categoryTitle;  
         });
 

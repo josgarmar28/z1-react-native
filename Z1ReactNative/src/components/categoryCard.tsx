@@ -10,7 +10,7 @@ interface Props {
 }
 
 
-export const CategoryCard = ({ category, filtro, setFiltro}: Props ) => {    
+export const CategoryCard = ({ category, filtro, setFiltro }: Props ) => {    
 
     return (
         <TouchableOpacity

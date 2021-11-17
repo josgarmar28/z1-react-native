@@ -33,13 +33,13 @@ export const HomeScreen = () => {
                 showsHorizontalScrollIndicator={ false }
                 renderItem={
                         ({ item }) => 
-                        ( <CategoryCard category={ item } filtro={ filtro } setFiltro={ setFiltro } /> )}
+                        ( <CategoryCard category={ String(item) } filtro={ filtro } setFiltro={ setFiltro } /> )}
                 horizontal= {true}
             />
             
             {selector ?
             
-            <FlatList 
+            <FlatList
                 key={ '2' }
                 data={ filteredList }
                 showsVerticalScrollIndicator={ false }
