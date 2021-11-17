@@ -23,11 +23,9 @@ export const HomeScreen = () => {
     [filtro, lessonList]
     )
 
-    
-
     return (
         <View style={{ alignItems: 'center'}}>
-
+            <View style={{ alignItems: 'center'}}>
             <HomeScreenTitle>Learn</HomeScreenTitle>
             
             <HomeScreenCategoryBar
@@ -38,9 +36,9 @@ export const HomeScreen = () => {
                         ( <CategoryCard category={ item } filtro={ filtro } setFiltro={ setFiltro } /> )}
                 horizontal= {true}
             />
-
+            
             {selector ?
-
+            
             <FlatList 
                 key={ '2' }
                 data={ filteredList }
@@ -62,6 +60,7 @@ export const HomeScreen = () => {
             />
 
             }
+            </View>
 
         </View>
     )

@@ -5,15 +5,12 @@ import { Lesson } from '../interfaces/lessonInterfaces';
 
 export const useCategory = () => {
 
-
     const [ categoryList, setCategoryList ] = useState<string[]>([]);
         
-
     const loadCategories = async() => {      
         const result = await query;
         crearLista( result.data.items ) ;
     }
-
 
     const crearLista = (lessons : Lesson[]) => {
 
@@ -22,7 +19,7 @@ export const useCategory = () => {
             return categoryTitle;  
         });
 
-        let filteredCategory = Array.from( new Set( newCategoryTitle ) );
+        let filteredCategory: string[] = Array.from( new Set( newCategoryTitle ) );
 
         filteredCategory.push( 'All' );
         //filteredCategory.push('Favorites');
@@ -31,11 +28,9 @@ export const useCategory = () => {
        setCategoryList( filteredCategory );
     }
 
-    
     useEffect(() => {
         loadCategories();
     }, [])
-
 
     return {
         categoryList
