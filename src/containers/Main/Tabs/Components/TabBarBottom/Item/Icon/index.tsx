@@ -4,7 +4,7 @@ import theme from 'theme';
 import { Props } from './types';
 
 const Icon: FC<Props> = ({ icon, focused }) => {
-  const color = focused ? theme.colors.red : theme.colors.black;
+  const color = focused ? '#fddb6f' : theme.colors.black;
   return (
     <>
       {icon === 'Home' && <PlusIcon color={color} />}

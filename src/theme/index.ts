@@ -9,6 +9,8 @@ const colors = {
   yellow: 'yellow',
   blue: 'blue',
   transparent: 'rgba(0,0,0,0)',
+  grape: '#421b5d',
+  grape50: '#421b5d50',
 };
 
 const { width, height } = Dimensions.get('window');

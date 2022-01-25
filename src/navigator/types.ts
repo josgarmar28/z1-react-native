@@ -12,6 +12,7 @@ export type ScreensParams = {
   Alerts: undefined;
   Discover: undefined;
   Feed: undefined;
+  Details: undefined;
 };
 
 export type MainStackScreenProps<ScreenName extends keyof ScreensParams> =

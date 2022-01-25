@@ -11,7 +11,7 @@ export const Content = styled(RectButton).attrs(() => ({
   border-radius: 30px;
   justify-content: center;
   position: absolute;
-  background-color: ${({ theme }) => theme.colors.red};
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const Container = styled.View`

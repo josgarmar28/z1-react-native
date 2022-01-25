@@ -1,21 +1,37 @@
-import React, { FC, useCallback } from 'react';
-import { Button } from 'react-native';
-import { useTranslation } from 'react-i18next';
-import { Container, Text } from './styles';
+import React, { FC } from 'react';
+import { View } from 'react-native';
+import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
+import CategoryCard from 'components/CategoryCard';
+import LessonCard from 'components/LessonCard';
+import useConnect from './connect';
+import { CategoryBar, Container, Title } from './styles';
 import { Props } from './types';
 
 const Home: FC<Props> = () => {
-  const { t, i18n } = useTranslation();
-
-  const onPress = useCallback(() => {
-    const language = i18n.language === 'en_US' ? 'es_ES' : 'en_US';
-    i18n.changeLanguage(language);
-  }, [i18n]);
-
+  const { handleDetails } = useConnect();
   return (
     <Container>
-      <Text>{t('home')}</Text>
-      <Button title={t('changeLanguage')} onPress={onPress} />
+      <Title>Learn</Title>
+      <CategoryBar
+        data={['TODO']}
+        showsHorizontalScrollIndicator={false}
+        renderItem={() => <CategoryCard />}
+        horizontal={true}
+      />
+
+      <FlatList
+        key={'2'}
+        data={['TODO', '2', '3', 'TODO', '2', '3']}
+        showsVerticalScrollIndicator={false}
+        numColumns={2}
+        renderItem={({}) => (
+          <View>
+            <TouchableOpacity onPress={handleDetails}>
+              <LessonCard />
+            </TouchableOpacity>
+          </View>
+        )}
+      />
     </Container>
   );
 };
