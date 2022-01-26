@@ -1,26 +1,26 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
+  fill: 'content';
   margin-bottom: 10px;
   border-radius: 10px;
   background-color: #60306f;
   shadow-color: #000;
-  height: 125px;
-  width: ${({ theme }) => theme.device.width * 0.9}px;
+  width: ${({ theme }) => theme.device.width * 0.91}px;
 `;
 
 export const Image = styled.Image`
-  width: 30%;
-  height: 107px;
-  margin-vertical: 8px;
-  margin-horizontal: 8px;
+  height: 110px;
+  width: 110px;
+  margin-vertical: 10px;
+  margin-horizontal: 10px;
   border-radius: 10px;
 `;
 
 export const Article = styled.Text`
   position: absolute;
   left: 115px;
-  margin-horizontal: 10px;
+  margin-horizontal: 15px;
   margin-top: 10px;
   margin-bottom: 5px;
   color: #fddb6f;
@@ -34,7 +34,7 @@ export const Title = styled.Text`
   top: 35px;
   left: 115px;
   width: 220px;
-  margin-horizontal: 10px;
+  margin-horizontal: 15px;
   margin-bottom: 5px;
   color: #ffffff;
   font-size: 18px;
@@ -45,7 +45,7 @@ export const Author = styled.Text`
   position: absolute;
   bottom: 5px;
   left: 115px;
-  margin-horizontal: 10px;
+  margin-horizontal: 15px;
   margin-bottom: 5px;
   color: #ffffff;
   font-size: 13px;

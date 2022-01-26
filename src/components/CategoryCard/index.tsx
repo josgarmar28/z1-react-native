@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Name, Selected } from './styles';
+import { Category, Name } from './styles';
 import { Props } from './types';
 
 const CategoryCard: FC<Props> = () => {
@@ -8,9 +8,9 @@ const CategoryCard: FC<Props> = () => {
     <TouchableOpacity>
       {/* <TouchableOpacity activeOpacity={0.9} onPress={() => setFilter(category)}> */}
       {/* {category === filter ? ( */}
-      <Selected>
-        <Name>{'category'}</Name>
-      </Selected>
+      <Category>
+        <Name>Category</Name>
+      </Category>
       {/* ) : (
         <CategoryCardContainer>
           <CategoryCardName>{category}</CategoryCardName>

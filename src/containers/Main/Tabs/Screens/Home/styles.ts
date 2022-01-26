@@ -1,15 +1,12 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  flex: 1;
   align-items: center;
+  margin-bottom: 67px;
   background-color: ${({ theme }) => theme.colors.grape};
-  margin-bottom: ${({ theme }) => theme.device.height * 0.1}px;
 `;
 
 export const Title = styled.Text`
-  margin-top: 15px;
-  margin-bottom: 5px;
   text-align: center;
   font-size: 28px;
   font-weight: 700;
@@ -17,9 +14,15 @@ export const Title = styled.Text`
   color: #ffffff;
 `;
 
+export const Content = styled.View`
+  align-items: center;
+`;
+
+export const Header = styled.View`
+  height: 90;
+`;
+
 export const CategoryBar = styled.FlatList`
   margin-top: 12px;
-  margin-bottom: 12px;
-  margin-left: 10px;
-  height: 50px;
+  margin-left: 20px;
 `;

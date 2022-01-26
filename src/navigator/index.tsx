@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Welcome, Login, SignUp, Tabs } from 'containers';
 import Details from 'containers/Main/Details';
 import {
-  // modalStackScreenOptions,
+  modalStackScreenOptions,
   generalStackScreenOptions,
 } from './constants';
 import { Props } from './types';
@@ -17,7 +17,9 @@ const AppNavigator: FC<Props> = () => {
       {ready ? (
         <Group screenOptions={generalStackScreenOptions}>
           <Screen name="Tabs" component={Tabs} />
-          <Screen name="Details" component={Details} />
+          <Group screenOptions={modalStackScreenOptions}>
+            <Screen name="Details" component={Details} />
+          </Group>
         </Group>
       ) : (
         <Group screenOptions={generalStackScreenOptions}>

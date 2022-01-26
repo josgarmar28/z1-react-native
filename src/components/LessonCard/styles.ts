@@ -7,7 +7,7 @@ export const Container = styled.View`
   background-color: #60306f;
   shadow-color: #000;
   height: 300px;
-  width: ${({ theme }) => theme.device.width * 0.45}px;
+  width: ${({ theme }) => theme.device.width * 0.44}px;
 `;
 
 export const Image = styled.Image`

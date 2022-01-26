@@ -1,37 +1,30 @@
 import React, { FC } from 'react';
-import { View } from 'react-native';
-import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import CategoryCard from 'components/CategoryCard';
-import LessonCard from 'components/LessonCard';
-import useConnect from './connect';
-import { CategoryBar, Container, Title } from './styles';
+import LessonList from 'components/LessonList';
+import { CategoryBar, Container, Content, Header, Title } from './styles';
 import { Props } from './types';
 
 const Home: FC<Props> = () => {
-  const { handleDetails } = useConnect();
+  // const selector = 'Category'.localeCompare('All') === 0;
+  const selector = 'All'.localeCompare('All') === 0;
+
   return (
     <Container>
-      <Title>Learn</Title>
-      <CategoryBar
-        data={['TODO']}
-        showsHorizontalScrollIndicator={false}
-        renderItem={() => <CategoryCard />}
-        horizontal={true}
-      />
-
-      <FlatList
-        key={'2'}
-        data={['TODO', '2', '3', 'TODO', '2', '3']}
-        showsVerticalScrollIndicator={false}
-        numColumns={2}
-        renderItem={({}) => (
-          <View>
-            <TouchableOpacity onPress={handleDetails}>
-              <LessonCard />
-            </TouchableOpacity>
-          </View>
-        )}
-      />
+      <SafeAreaView>
+        <Content>
+          <Header>
+            <Title>Learn</Title>
+            <CategoryBar
+              data={['TODO', '2', '3', 'TODO', '2', '3']}
+              showsHorizontalScrollIndicator={false}
+              renderItem={() => <CategoryCard />}
+              horizontal={true}
+            />
+          </Header>
+          <LessonList selector={selector} />
+        </Content>
+      </SafeAreaView>
     </Container>
   );
 };
