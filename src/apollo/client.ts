@@ -1,9 +1,8 @@
 import { createHttpLink, ApolloClient, InMemoryCache } from '@apollo/client';
-import { GRAPHQL_ENDPOINT } from '@env';
 import { enableFlipperApolloDevtools } from 'react-native-flipper-apollo-devtools';
 
 export const setupApollo = async () => {
-  const httpLink = createHttpLink({ uri: GRAPHQL_ENDPOINT });
+  const httpLink = createHttpLink({ uri: 'https://tech.z1.digital/graphql' });
 
   const cache = new InMemoryCache();
 

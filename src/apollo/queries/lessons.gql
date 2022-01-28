@@ -1,0 +1,13 @@
+query Lessons {
+    items {
+      id
+      title
+      image
+      author
+      category {
+        id
+        title
+      }
+      content
+    }
+  }
