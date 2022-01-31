@@ -5,10 +5,12 @@ const useConnect = () => {
   const { data } = useLessonsQuery();
 
   const lessons = data?.items;
+
   const categories = lessons?.map((lesson) => {
     return lesson?.category.title;
   });
-  const categoryList: (string | undefined)[] = Array.from(new Set(categories));
+
+  const categoryList = Array.from(new Set(categories));
   categoryList.push('All');
   categoryList.sort();
 
