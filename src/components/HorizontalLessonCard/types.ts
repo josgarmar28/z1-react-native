@@ -1,4 +1,5 @@
+import { Lesson } from '../../apollo/generated/globalTypes';
+
 export type Props = {
-  //   lesson: Lesson;
-  //   selector: boolean;
+  lesson: Lesson | null | undefined;
 };

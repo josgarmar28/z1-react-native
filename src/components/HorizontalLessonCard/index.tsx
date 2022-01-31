@@ -2,16 +2,17 @@ import React, { FC } from 'react';
 import { Article, Author, Container, Image, Title } from './styles';
 import { Props } from './types';
 
-const HorizontalLessonCard: FC<Props> = () => {
+const HorizontalLessonCard: FC<Props> = (lesson) => {
+  const item = lesson.lesson;
   return (
     <Container>
-      <Image source={{ uri: 'https://placeimg.com/640/360/animals' }} />
+      <Image source={{ uri: item?.image }} />
 
       <Article>Article</Article>
 
-      <Title>Title</Title>
+      <Title>{item?.title}</Title>
 
-      <Author>Author</Author>
+      <Author>{item?.author}</Author>
     </Container>
   );
 };

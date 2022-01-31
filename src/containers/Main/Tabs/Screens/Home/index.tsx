@@ -1,13 +1,12 @@
 import React, { FC } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import CategoryCard from 'components/CategoryCard';
-import LessonList from 'components/LessonList';
+import { CategoryCard, LessonList } from '../../../../../components';
+import useConnect from './connect';
 import { CategoryBar, Container, Content, Header, Title } from './styles';
 import { Props } from './types';
 
 const Home: FC<Props> = () => {
-  // const selector = 'Category'.localeCompare('All') === 0;
-  const selector = 'All'.localeCompare('All') === 0;
+  const { categoryList, filteredList, filter } = useConnect();
 
   return (
     <Container>
@@ -16,13 +15,13 @@ const Home: FC<Props> = () => {
           <Header>
             <Title>Learn</Title>
             <CategoryBar
-              data={['TODO', '2', '3', 'TODO', '2', '3']}
+              data={categoryList}
               showsHorizontalScrollIndicator={false}
-              renderItem={() => <CategoryCard />}
+              renderItem={(lesson) => <CategoryCard category={lesson.item} />}
               horizontal={true}
             />
           </Header>
-          <LessonList selector={selector} />
+          <LessonList lessons={filteredList} filter={filter} />
         </Content>
       </SafeAreaView>
     </Container>

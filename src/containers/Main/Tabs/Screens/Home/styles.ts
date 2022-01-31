@@ -11,7 +11,7 @@ export const Title = styled.Text`
   font-size: 28px;
   font-weight: 700;
   letter-spacing: 0.25px;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 export const Content = styled.View`
@@ -19,7 +19,7 @@ export const Content = styled.View`
 `;
 
 export const Header = styled.View`
-  height: 90;
+  height: 90px;
 `;
 
 export const CategoryBar = styled.FlatList`

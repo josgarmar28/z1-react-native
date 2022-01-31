@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Close from 'components/Icons/Close';
+import { Close } from '../../../../components/Icons';
 import useConnect from './connect';
 import {
   Article,

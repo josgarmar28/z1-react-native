@@ -13,7 +13,7 @@ export const Container = styled.View`
 export const Article = styled.Text`
   font-size: 13px;
   text-transform: uppercase;
-  color: #fddb6f;
+  color: ${({ theme }) => theme.colors.yellow_les};
   margin-horizontal: 20px;
   margin-top: 10px;
   margin-bottom: 5px;
@@ -22,21 +22,21 @@ export const Article = styled.Text`
 export const Title = styled.Text`
   font-size: 30px;
   font-weight: bold;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
   margin-horizontal: 20px;
   margin-vertical: 7px;
 `;
 
 export const Author = styled.Text`
   font-size: 13px;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
   margin-horizontal: 20px;
   margin-vertical: 7px;
 `;
 
 export const Content = styled.Text`
   font-size: 13px;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
   margin-horizontal: 20px;
   margin-vertical: 10px;
   line-height: 25px;

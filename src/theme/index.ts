@@ -9,8 +9,11 @@ const colors = {
   yellow: 'yellow',
   blue: 'blue',
   transparent: 'rgba(0,0,0,0)',
-  grape: '#421b5d',
-  grape50: '#421b5d50',
+  grape: '#421B5D',
+  dark_purple_cat: '#593C71',
+  light_purple_cat: '#C77AC4',
+  purple_les: '#60306F',
+  yellow_les: '#FDDB6F',
 };
 
 const { width, height } = Dimensions.get('window');

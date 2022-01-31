@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Welcome, Login, SignUp, Tabs } from 'containers';
-import Details from 'containers/Main/Details';
+import Details from 'containers/Main/Screens/Details';
 import {
   modalStackScreenOptions,
   generalStackScreenOptions,
@@ -28,9 +28,6 @@ const AppNavigator: FC<Props> = () => {
           <Screen name="Login" component={Login} />
         </Group>
       )}
-      {/* <Group screenOptions={modalStackScreenOptions}>
-        <Screen name="Modal" component={Modal} />
-      </Group> */}
     </Navigator>
   );
 };
