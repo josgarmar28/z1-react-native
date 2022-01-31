@@ -4,8 +4,7 @@ export const Container = styled.View`
   fill: 'content';
   margin-bottom: 10px;
   border-radius: 10px;
-  background-color: #60306f;
-  shadow-color: #000;
+  background-color: ${({ theme }) => theme.colors.purple_les};
   width: ${({ theme }) => theme.device.width * 0.91}px;
 `;
 
@@ -19,11 +18,11 @@ export const Image = styled.Image`
 
 export const Article = styled.Text`
   position: absolute;
-  left: 115px;
-  margin-horizontal: 15px;
+  left: 130px;
+  margin-right: 20px;
   margin-top: 10px;
   margin-bottom: 5px;
-  color: #fddb6f;
+  color: ${({ theme }) => theme.colors.yellow_les};
   font-size: 15px;
   font-weight: bold;
   text-transform: uppercase;
@@ -32,11 +31,11 @@ export const Article = styled.Text`
 export const Title = styled.Text`
   position: absolute;
   top: 35px;
-  left: 115px;
-  width: 220px;
-  margin-horizontal: 15px;
+  left: 130px;
+  margin-right: 20px;
+  width: 215px;
   margin-bottom: 5px;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
   font-size: 18px;
   font-weight: bold;
 `;
@@ -44,9 +43,9 @@ export const Title = styled.Text`
 export const Author = styled.Text`
   position: absolute;
   bottom: 5px;
-  left: 115px;
-  margin-horizontal: 15px;
+  left: 130px;
+  margin-right: 20px;
   margin-bottom: 5px;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
   font-size: 13px;
 `;

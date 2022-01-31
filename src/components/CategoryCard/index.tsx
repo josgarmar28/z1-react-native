@@ -1,21 +1,22 @@
 import React, { FC } from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Category, Name } from './styles';
+import { Category, Name, Selected } from './styles';
 import { Props } from './types';
 
-const CategoryCard: FC<Props> = () => {
+const CategoryCard: FC<Props> = (category) => {
+  const item: string = category.category;
+  const selector = item.localeCompare('All') === 0; //TO_DO
   return (
     <TouchableOpacity>
-      {/* <TouchableOpacity activeOpacity={0.9} onPress={() => setFilter(category)}> */}
-      {/* {category === filter ? ( */}
-      <Category>
-        <Name>Category</Name>
-      </Category>
-      {/* ) : (
-        <CategoryCardContainer>
-          <CategoryCardName>{category}</CategoryCardName>
-        </CategoryCardContainer>
-      )} */}
+      {selector ? (
+        <Selected>
+          <Name>{item}</Name>
+        </Selected>
+      ) : (
+        <Category>
+          <Name>{item}</Name>
+        </Category>
+      )}
     </TouchableOpacity>
   );
 };

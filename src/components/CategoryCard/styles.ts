@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 export const Category = styled.View`
   margin-right: 10px;
   border-radius: 10px;
-  background-color: #593c71;
+  background-color: ${({ theme }) => theme.colors.dark_purple_cat};
   height: 30px;
   justify-content: center;
 `;
@@ -11,7 +11,7 @@ export const Category = styled.View`
 export const Selected = styled.View`
   margin-right: 10px;
   border-radius: 10px;
-  background-color: #b77ac4;
+  background-color: ${({ theme }) => theme.colors.light_purple_cat};
   height: 30px;
   justify-content: center;
 `;
