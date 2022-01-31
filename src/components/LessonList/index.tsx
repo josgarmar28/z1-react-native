@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
-import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
-import HorizontalLessonCard from '../HorizontalLessonCard';
-import LessonCard from '../LessonCard';
+import { FlatList } from 'react-native-gesture-handler';
 import useConnect from './connect';
+import HorizontalLessonCard from './HorizontalLessonCard';
+import LessonCard from './LessonCard';
 import { Horizontal, Vertical } from './styles';
 import { Props } from './types';
 
 const LessonList: FC<Props> = ({ lessons, filter }) => {
+  const selector = 'All'.localeCompare(filter) === 0;
   const { handleDetails } = useConnect();
-  const selector = 'All'.localeCompare(filter) !== 0;
 
   return (
     <>
@@ -20,9 +20,7 @@ const LessonList: FC<Props> = ({ lessons, filter }) => {
             showsVerticalScrollIndicator={false}
             numColumns={2}
             renderItem={({ item }) => (
-              <TouchableOpacity onPress={handleDetails}>
-                <LessonCard lesson={item} />
-              </TouchableOpacity>
+              <LessonCard lesson={item} onPress={handleDetails} />
             )}
           />
         </Vertical>
@@ -34,9 +32,7 @@ const LessonList: FC<Props> = ({ lessons, filter }) => {
             showsVerticalScrollIndicator={false}
             numColumns={1}
             renderItem={({ item }) => (
-              <TouchableOpacity onPress={handleDetails}>
-                <HorizontalLessonCard lesson={item} />
-              </TouchableOpacity>
+              <HorizontalLessonCard lesson={item} onPress={handleDetails} />
             )}
           />
         </Horizontal>
