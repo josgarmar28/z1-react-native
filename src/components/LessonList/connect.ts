@@ -1,12 +1,12 @@
 import { useCallback } from 'react';
 import { useNavigation } from '@react-navigation/core';
-import { Lesson } from 'apollo/generated/globalTypes';
+import { LessonNormalized } from 'models/Lesson';
 
 const useConnect = () => {
   const { navigate } = useNavigation();
 
   const handleDetails = useCallback(
-    (item: Lesson | null | undefined) => {
+    (item: LessonNormalized) => {
       navigate('Details', { lesson: item });
     },
     [navigate],

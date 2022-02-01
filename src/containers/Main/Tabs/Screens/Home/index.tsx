@@ -17,9 +17,9 @@ const Home: FC<Props> = () => {
             <CategoryBar
               data={categoryList}
               showsHorizontalScrollIndicator={false}
-              renderItem={(lesson) => (
+              renderItem={(category) => (
                 <CategoryCard
-                  category={lesson.item}
+                  category={category.item}
                   filter={filter}
                   setFilter={setFilter}
                 />

@@ -1,5 +1,5 @@
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Lesson } from 'apollo/generated/globalTypes';
+import { LessonNormalized } from 'models/Lesson';
 
 declare global {
   namespace ReactNavigation {
@@ -8,7 +8,7 @@ declare global {
 }
 
 type DetailsParams = {
-  lesson: Lesson | null | undefined;
+  lesson: LessonNormalized;
 };
 
 export type ScreensParams = {
