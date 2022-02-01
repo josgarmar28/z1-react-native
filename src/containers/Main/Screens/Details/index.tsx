@@ -15,13 +15,13 @@ import {
 import { Props } from './types';
 
 const Details: FC<Props> = ({ route }) => {
-  const { handleBack } = useConnect();
+  const { handleClose } = useConnect();
   const { lesson } = route.params;
   return (
     <Scroll showsVerticalScrollIndicator={false}>
       <SafeAreaView>
         <Container>
-          <BorderlessButton activeOpacity={0.75} onPress={handleBack}>
+          <BorderlessButton activeOpacity={0.75} onPress={handleClose}>
             <Close />
           </BorderlessButton>
 

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { FlatList } from 'react-native-gesture-handler';
 import useConnect from './connect';
 import HorizontalLessonCard from './HorizontalLessonCard';
@@ -7,12 +7,12 @@ import { Horizontal, Vertical } from './styles';
 import { Props } from './types';
 
 const LessonList: FC<Props> = ({ lessons, filter }) => {
-  const selector = 'All'.localeCompare(filter) === 0;
-  const { handleDetails } = useConnect();
+  const showVerticalCards = filter === 'All';
+  const { handleNavigateToLessonDetail } = useConnect();
 
   return (
     <>
-      {selector ? (
+      {showVerticalCards ? (
         <Vertical>
           <FlatList
             key={'2'}
@@ -20,7 +20,10 @@ const LessonList: FC<Props> = ({ lessons, filter }) => {
             showsVerticalScrollIndicator={false}
             numColumns={2}
             renderItem={({ item }) => (
-              <LessonCard lesson={item} onPress={handleDetails} />
+              <LessonCard
+                lesson={item}
+                onPress={handleNavigateToLessonDetail}
+              />
             )}
           />
         </Vertical>
@@ -32,7 +35,10 @@ const LessonList: FC<Props> = ({ lessons, filter }) => {
             showsVerticalScrollIndicator={false}
             numColumns={1}
             renderItem={({ item }) => (
-              <HorizontalLessonCard lesson={item} onPress={handleDetails} />
+              <HorizontalLessonCard
+                lesson={item}
+                onPress={handleNavigateToLessonDetail}
+              />
             )}
           />
         </Horizontal>
@@ -41,4 +47,4 @@ const LessonList: FC<Props> = ({ lessons, filter }) => {
   );
 };
 
-export default LessonList;
+export default memo(LessonList);

@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC, memo, useCallback } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { Author, Category, Container, Image, Title } from './styles';
 import { Props } from './types';
@@ -23,4 +23,4 @@ const LessonCard: FC<Props> = ({ lesson, onPress }) => {
   );
 };
 
-export default LessonCard;
+export default memo(LessonCard);
