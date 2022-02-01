@@ -4,14 +4,14 @@ import { useNavigation } from '@react-navigation/core';
 const useConnect = () => {
   const { canGoBack, goBack } = useNavigation();
 
-  const handleBack = useCallback(() => {
+  const handleClose = useCallback(() => {
     if (canGoBack()) {
       goBack();
     }
   }, [canGoBack, goBack]);
 
   return {
-    handleBack,
+    handleClose,
   };
 };
 

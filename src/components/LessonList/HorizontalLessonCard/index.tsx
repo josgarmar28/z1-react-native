@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC, memo, useCallback } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { Article, Author, Container, Image, Title } from './styles';
 import { Props } from './types';
@@ -23,4 +23,4 @@ const HorizontalLessonCard: FC<Props> = ({ lesson, onPress }) => {
   );
 };
 
-export default HorizontalLessonCard;
+export default memo(HorizontalLessonCard);

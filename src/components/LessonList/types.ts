@@ -1,6 +1,6 @@
-import { LessonNormalized } from 'models/Lesson';
+import { Lesson } from 'models/Lesson';
 
 export type Props = {
-  lessons: LessonNormalized[];
+  lessons: Lesson[];
   filter: string;
 };

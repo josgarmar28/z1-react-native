@@ -1,5 +1,5 @@
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { LessonNormalized } from 'models/Lesson';
+import { Lesson } from 'models/Lesson';
 
 declare global {
   namespace ReactNavigation {
@@ -8,7 +8,7 @@ declare global {
 }
 
 type DetailsParams = {
-  lesson: LessonNormalized;
+  lesson: Lesson;
 };
 
 export type ScreensParams = {

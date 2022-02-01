@@ -1,10 +1,10 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC, memo, useCallback } from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Category, Name, Selected } from './styles';
 import { Props } from './types';
 
 const CategoryCard: FC<Props> = ({ category, filter, setFilter }) => {
-  const selector = category.localeCompare(filter) === 0;
+  const showSelectedCard = category === filter;
 
   const handlePress = useCallback(() => {
     setFilter(category);
@@ -12,7 +12,7 @@ const CategoryCard: FC<Props> = ({ category, filter, setFilter }) => {
 
   return (
     <TouchableOpacity onPress={handlePress}>
-      {selector ? (
+      {showSelectedCard ? (
         <Selected>
           <Name>{category}</Name>
         </Selected>
@@ -25,4 +25,4 @@ const CategoryCard: FC<Props> = ({ category, filter, setFilter }) => {
   );
 };
 
-export default CategoryCard;
+export default memo(CategoryCard);
