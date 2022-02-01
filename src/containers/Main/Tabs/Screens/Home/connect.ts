@@ -1,10 +1,11 @@
 import { useMemo, useState } from 'react';
 import { useLessonsQuery } from 'apollo/generated/lessons';
+import { normalizeLessons } from 'models/Lessons';
 
 const useConnect = () => {
   const { data } = useLessonsQuery();
 
-  const lessons = data?.items;
+  const { lessons } = normalizeLessons(data);
 
   const categories = lessons?.map((lesson) => {
     return lesson?.category.title;

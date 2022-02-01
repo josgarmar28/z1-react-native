@@ -1,6 +1,6 @@
-import { Lesson } from '../../../apollo/generated/globalTypes';
+import { LessonNormalized } from 'models/Lesson';
 
 export type Props = {
-  lesson: Lesson | null | undefined;
-  onPress: (item: Lesson | null | undefined) => void;
+  lesson: LessonNormalized;
+  onPress: (item: LessonNormalized) => void;
 };

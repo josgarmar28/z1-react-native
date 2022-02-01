@@ -1,6 +1,6 @@
-import { Lesson } from 'apollo/generated/globalTypes';
+import { LessonNormalized } from 'models/Lesson';
 
 export type Props = {
-  lessons: (Lesson | null | undefined)[] | null | undefined;
+  lessons: LessonNormalized[];
   filter: string;
 };
