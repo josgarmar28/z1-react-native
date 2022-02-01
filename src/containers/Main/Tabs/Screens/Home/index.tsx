@@ -6,7 +6,7 @@ import { CategoryBar, Container, Content, Header, Title } from './styles';
 import { Props } from './types';
 
 const Home: FC<Props> = () => {
-  const { categoryList, filteredList, filter } = useConnect();
+  const { categoryList, filteredList, filter, setFilter } = useConnect();
 
   return (
     <Container>
@@ -18,7 +18,11 @@ const Home: FC<Props> = () => {
               data={categoryList}
               showsHorizontalScrollIndicator={false}
               renderItem={(lesson) => (
-                <CategoryCard category={lesson.item} filter={filter} />
+                <CategoryCard
+                  category={lesson.item}
+                  filter={filter}
+                  setFilter={setFilter}
+                />
               )}
               horizontal={true}
             />
