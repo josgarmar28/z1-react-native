@@ -1,5 +1,6 @@
 import React, { FC, memo } from 'react';
 import { FlatList } from 'react-native-gesture-handler';
+import { Lesson } from 'models/Lesson';
 import useConnect from './connect';
 import HorizontalLessonCard from './HorizontalLessonCard';
 import LessonCard from './LessonCard';
@@ -10,12 +11,14 @@ const LessonList: FC<Props> = ({ lessons, filter }) => {
   const showVerticalCards = filter === 'All';
   const { handleNavigateToLessonDetail } = useConnect();
 
+  const handleKeyExtractor = (item: Lesson) => item.id;
+
   return (
     <>
       {showVerticalCards ? (
         <Vertical>
           <FlatList
-            key={'2'}
+            keyExtractor={handleKeyExtractor}
             data={lessons}
             showsVerticalScrollIndicator={false}
             numColumns={2}
@@ -30,7 +33,7 @@ const LessonList: FC<Props> = ({ lessons, filter }) => {
       ) : (
         <Horizontal>
           <FlatList
-            key={'1'}
+            keyExtractor={handleKeyExtractor}
             data={lessons}
             showsVerticalScrollIndicator={false}
             numColumns={1}
