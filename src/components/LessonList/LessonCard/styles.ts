@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 
 export const Container = styled.View`
   margin-horizontal: 5px;
@@ -19,6 +19,11 @@ export const Image = styled.Image`
 export const Category = styled.Text`
   margin-left: 12px;
   margin-top: 15px;
+  ${({ theme }) =>
+    theme.device.isAndroid &&
+    css`
+      margin-top: 10px;
+    `};
   margin-bottom: 8px;
   color: ${({ theme }) => theme.colors.yellow_les};
   font-size: 14px;

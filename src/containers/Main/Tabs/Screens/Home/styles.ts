@@ -8,7 +8,7 @@ export const Container = styled.View`
 
 export const Title = styled.Text`
   margin-top: 5px;
-  margin-bottom: 2px;
+  margin-bottom: 15px;
   text-align: center;
   font-size: 30px;
   font-family: 'CooperBT-Medium';
@@ -20,10 +20,9 @@ export const Content = styled.View`
 `;
 
 export const Header = styled.View`
-  height: 90px;
+  height: 95px;
 `;
 
 export const CategoryBar = styled.FlatList`
-  margin-top: 12px;
   margin-left: 20px;
 `;
