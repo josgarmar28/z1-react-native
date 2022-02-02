@@ -17,8 +17,8 @@ export const Selected = styled.View`
 `;
 
 export const Name = styled.Text`
-  font-size: 16px;
-  font-weight: bold;
+  font-family: 'SofiaProSemiBold';
+  font-size: 18px;
   margin-horizontal: 10px;
   text-align: center;
   color: ${({ theme }) => theme.colors.white};

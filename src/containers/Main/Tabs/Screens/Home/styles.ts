@@ -7,10 +7,11 @@ export const Container = styled.View`
 `;
 
 export const Title = styled.Text`
+  margin-top: 5px;
+  margin-bottom: 2px;
   text-align: center;
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: 0.25px;
+  font-size: 30px;
+  font-family: 'CooperBT-Medium';
   color: ${({ theme }) => theme.colors.white};
 `;
 
