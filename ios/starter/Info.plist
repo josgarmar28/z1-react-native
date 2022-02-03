@@ -36,7 +36,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -49,5 +49,14 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>CooperBT-Medium.ttf</string>
+		<string>SofiaProLight-Italic.otf</string>
+		<string>SofiaProLight.otf</string>
+		<string>SofiaProMedium.otf</string>
+		<string>SofiaProRegular.otf</string>
+		<string>SofiaProSemiBold.otf</string>
+	</array>
 </dict>
 </plist>

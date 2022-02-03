@@ -11,7 +11,8 @@ export const Container = styled.View`
 `;
 
 export const Article = styled.Text`
-  font-size: 13px;
+  font-family: 'SofiaProSemiBold';
+  font-size: 14px;
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.yellow_les};
   margin-horizontal: 20px;
@@ -20,24 +21,26 @@ export const Article = styled.Text`
 `;
 
 export const Title = styled.Text`
-  font-size: 30px;
-  font-weight: bold;
+  font-family: 'CooperBT-Medium';
+  font-size: 34px;
   color: ${({ theme }) => theme.colors.white};
   margin-horizontal: 20px;
   margin-vertical: 7px;
 `;
 
 export const Author = styled.Text`
-  font-size: 13px;
+  font-family: 'SofiaProLight';
+  font-size: 14px;
   color: ${({ theme }) => theme.colors.white};
   margin-horizontal: 20px;
   margin-vertical: 7px;
 `;
 
 export const Content = styled.Text`
-  font-size: 13px;
+  font-family: 'SofiaProRegular';
+  font-size: 15px;
   color: ${({ theme }) => theme.colors.white};
-  margin-horizontal: 20px;
+  margin-horizontal: 17px;
   margin-vertical: 10px;
   line-height: 25px;
 `;

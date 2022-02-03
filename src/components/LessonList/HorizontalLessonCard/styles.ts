@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 
 export const Container = styled.View`
   fill: 'content';
@@ -9,8 +9,8 @@ export const Container = styled.View`
 `;
 
 export const Image = styled.Image`
-  height: 110px;
-  width: 110px;
+  height: 100px;
+  width: 100px;
   margin-vertical: 10px;
   margin-horizontal: 10px;
   border-radius: 10px;
@@ -18,34 +18,39 @@ export const Image = styled.Image`
 
 export const Article = styled.Text`
   position: absolute;
-  left: 130px;
+  left: 120px;
   margin-right: 20px;
-  margin-top: 10px;
+  margin-top: 15px;
+  ${({ theme }) =>
+    theme.device.isAndroid &&
+    css`
+      margin-top: 10px;
+    `};
   margin-bottom: 5px;
   color: ${({ theme }) => theme.colors.yellow_les};
-  font-size: 15px;
-  font-weight: bold;
+  font-size: 14px;
+  font-family: 'SofiaProSemiBold';
   text-transform: uppercase;
 `;
 
 export const Title = styled.Text`
   position: absolute;
-  top: 35px;
-  left: 130px;
-  margin-right: 20px;
+  top: 37px;
+  left: 120px;
   width: 215px;
-  margin-bottom: 5px;
   color: ${({ theme }) => theme.colors.white};
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 20px;
+  font-family: 'SofiaProSemiBold';
+  line-height: 28px;
 `;
 
 export const Author = styled.Text`
   position: absolute;
   bottom: 5px;
-  left: 130px;
+  left: 120px;
   margin-right: 20px;
   margin-bottom: 5px;
   color: ${({ theme }) => theme.colors.white};
-  font-size: 13px;
+  font-size: 14px;
+  font-family: 'SofiaProLight';
 `;
