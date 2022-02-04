@@ -1,13 +1,10 @@
 import { useMemo, useState } from 'react';
-import { useLessonsQuery } from 'apollo/generated/lessons';
-import { normalizeLessons } from 'models/Lessons';
+import { useLessons } from 'apollo/hooks/useLessons';
 
 const useConnect = () => {
-  const { data } = useLessonsQuery();
+  const { lessons } = useLessons();
 
-  const { items } = normalizeLessons(data);
-
-  const allCategories = items?.map((lesson) => {
+  const allCategories = lessons.items?.map((lesson) => {
     return lesson?.category.title;
   });
 
@@ -20,9 +17,9 @@ const useConnect = () => {
   const showAllLessons = filter === 'All';
 
   var filteredList = useMemo(() => {
-    if (showAllLessons) return items;
-    return items?.filter((lesson) => filter === lesson?.category.title);
-  }, [filter, items, showAllLessons]);
+    if (showAllLessons) return lessons.items;
+    return lessons?.items.filter((lesson) => filter === lesson?.category.title);
+  }, [filter, lessons, showAllLessons]);
 
   return {
     categoryList,
